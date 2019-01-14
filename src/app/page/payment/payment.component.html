@@ -1,0 +1,51 @@
+<div>
+  <div class="pay-or-not">
+      <a class="litem">Заплатить</a>
+      <a class="litem">Запросить платеж</a>
+  </div>
+
+  <div>
+      <div class="how-to-pay">
+          <a class="litem">С карты любого банка</a>
+          <a class="litem">Из своего интернет-банка</a>
+      </div>
+      <div>
+          <form class="from-card">
+              <div class="card-data">
+                  <ul class="card-data-icons">
+                          <li class="card-data-icons-item icon-visa"></li>
+                          <li class="card-data-icons-item icon-mastercard"></li>
+                          <li class="card-data-icons-item icon-maestro"></li>
+                  </ul>
+                  <input class="card-data_input card-data-number" type="text" 
+                      name="CardNumber" placeholder="XXXX XXXX XXXX XXXX">
+                  <input class="card-data_input card-data-expires" type="text" 
+                          name="CardDate" placeholder="ММ/ГГ">
+                  <input class="card-data_input card-data-cvc" type="text" 
+                          name="CVC" placeholder="XXX">
+              </div>
+              <div class="extra">
+                  <label class="caption">Сумма:</label>
+                      <input class="card-data_input" type="number" name="sum" placeholder="От 1000 до 75000">
+                  <label class="caption">Комментарий:</label>
+                  <input class="card-data_input" type="text" name="comment" 
+                         placeholder="До 150 символов">
+                  <label class="caption">Электронная почта:</label>
+                  <input class="card-data_input" type="email" name="post" 
+                          placeholder="Ваша почта">
+                  <div class="button-wrapper button-small">
+                      <span class="button-bg"></span>
+                      <input class="button" type="submit" name="pay" value="Заплатить">
+                  </div>
+              </div>
+          </form>
+      </div>
+      <div>
+          из банка
+      </div>
+  </div>
+
+  <div>
+      запросить платеж
+  </div>
+</div>
