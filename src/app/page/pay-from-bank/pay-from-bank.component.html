@@ -3,19 +3,22 @@
   <form [formGroup]="this.payFromBank">
       <div class="pay-from-bank">
           <label class="pfb">От кого</label>
-          <input class="pfb-input from" type="text" placeholder="ИНН или название плательщика">
+          <input class="pfb-input from" type="text" placeholder="ИНН или название плательщика"
+            formControlName="fromWho">
           <label class="pfb">БИК</label>
-          <input class="pfb-input bik" type="text">
+          <input class="pfb-input bik" type="text" formControlName="bik">
           <label class="pfb">Номер счета</label>
-          <input class="pfb-input count-number" type="text">
+          <input class="pfb-input count-number" type="text" formControlName="countNumber">
           <label class="pfb">За что</label>
-          <input class="pfb-input for-what" type="text" placeholder="Назначение платежа">
+          <input class="pfb-input for-what" type="text" placeholder="Назначение платежа" 
+            formControlName="forWhat">
           <label class="pfb">Сколько</label>
-          <input class="pfb-input how-much" type="text">
+          <input class="pfb-input how-much" type="text" formControlName="howMuch">
       </div>
       <div class="button-wrapper button-big">
           <span class="button-bg"></span>
-          <input class="button-get" type="submit" name="pay" value="Получить файл для интернет-банка">
+          <input class="button-get" type="submit" name="pay" value="Получить файл для интернет-банка" 
+          [disabled]="this.payFromBank.invalid">
       </div>
   </form>
 </div>

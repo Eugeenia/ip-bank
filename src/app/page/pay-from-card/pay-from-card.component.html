@@ -1,7 +1,7 @@
 <div>
   <div>
       <div>
-          <form class="from-card" [formGroup]="this.cardForm">
+          <form class="from-card" [formGroup]="this.cardForm" (ngSubmit)="collectInfo()">
               <div class="card-data">
                   <ul class="card-data-icons">
                           <li class="card-data-icons-item icon-visa"></li>

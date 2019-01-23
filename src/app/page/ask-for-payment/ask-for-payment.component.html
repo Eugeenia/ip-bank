@@ -21,7 +21,8 @@
 
           <div class="button-wrapper button-mid">
               <span class="button-bg"></span>
-              <input class="button-get" type="submit" name="pay" value="Создать платеж">
+              <input class="button-get" type="submit" name="pay" value="Создать платеж"
+              [disabled]="this.askForPayment.invalid">
           </div>  
       </div>
       <input class="button-reset" type="reset" value="Очистить форму">
