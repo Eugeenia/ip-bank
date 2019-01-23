@@ -9,6 +9,7 @@ export class ServerService {
     private urlServer = 'http://localhost:5000'
     private urlApiPay = this.urlServer + '/card-payments/';
     private urlApiAsk = this.urlServer + '/ask-payments/';
+    private validationApiUrl = this.urlServer + '/validator/';
 
     public saveCardPay(cardModel: CardPayModel){
         return this.http.post<CardPayModel>(this.urlApiPay, cardModel);
@@ -27,6 +28,50 @@ export class ServerService {
     }
 
     public markAsDangerous(url: string){
-        return this.http.patch<CardPayModel>(this.urlApiPay + url, {});
+        return this.http.patch<CardPayModel>(this.urlServer + url, {});
+    }
+
+    validateCardNumber(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'cardNumber/', { value: value });
+    }
+
+    validateCardCVC(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'cvc/', { value: value });
+    }
+
+    validateAmount(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'amount/', { value: value });
+    }
+
+    validateCardExpires(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'cardExpires/', { value: value });
+    }
+
+    validateComment(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'comment/', { value: value });
+    }
+
+    validateEmail(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'email/', { value: value });
+    }
+
+    validateINN(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'inn/', { value: value });
+    }
+
+    validateBIK(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'bik/', { value: value });
+    }
+
+    validateNDS(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'nds/', { value: value });
+    }
+
+    validateAccNumber(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'accNumber/', { value: value });
+    }
+
+    validateTelNumber(value) {
+        return this.http.post<{ [key: string]: boolean }>(this.validationApiUrl + 'telNumber/', { value: value });
     }
 }

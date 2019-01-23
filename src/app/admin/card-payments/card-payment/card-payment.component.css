@@ -1,0 +1,10 @@
+.admin-card-pay {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    margin: auto; 
+    background-color: rgb(196, 250, 115);
+    margin-bottom: 7px;
+}
+.dangerous {
+    background-color: lightcoral;
+}

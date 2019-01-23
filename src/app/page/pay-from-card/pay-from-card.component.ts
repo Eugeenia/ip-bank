@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CardPayModel } from 'src/app/shared/card-pay.model';
 import { ServerService } from 'src/app/shared/server.service';
+import { ValidatorService } from 'src/app/shared/validator.service';
 
 @Component({
   selector: 'app-pay-from-card',
@@ -11,25 +12,38 @@ import { ServerService } from 'src/app/shared/server.service';
 export class PayFromCardComponent implements OnInit {
 
   cardForm: FormGroup = new FormGroup({
-    cardDataNumber: new FormControl('1111 2222 3333 4444', [
+    cardDataNumber: new FormControl('', [
       Validators.required
+    ], [
+      this.validator.validateCardNumber.bind(this.validator)
     ]),
-    cardDataExpires: new FormControl('11/11', [
+    cardDataExpires: new FormControl('', [
       Validators.required
+    ], [
+      this.validator.validateCardExpires.bind(this.validator)
     ]),
-    cardDataCvc: new FormControl('123', [
+    cardDataCvc: new FormControl('', [
       Validators.required
+    ], [
+      this.validator.validateCardCVC.bind(this.validator)
     ]),
-    sum: new FormControl('1000', [
+    sum: new FormControl('', [
       Validators.required
+    ], [
+      this.validator.validateHowMuch.bind(this.validator)
     ]),
-    comment: new FormControl(''),
-    email: new FormControl('email', [
+    comment: new FormControl('', [], [
+      this.validator.validateComment.bind(this.validator)
+    ]),
+    email: new FormControl('', [
       Validators.required
+    ], [
+      this.validator.validateEmail.bind(this.validator)
     ]),
   });
 
-  constructor(private service: ServerService) { }
+  constructor(private service: ServerService,
+              private validator: ValidatorService) { }
 
   ngOnInit() {
   }

@@ -1,0 +1,5 @@
+.admin-ask-pay {
+    display: grid;
+    grid-template-columns: repeat(1fr, 7);
+    margin: auto; 
+}

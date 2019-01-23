@@ -14,10 +14,19 @@ import { PayComponent } from './page/pay/pay.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ServerService } from './shared/server.service';
+import { CardPaymentsComponent } from './admin/card-payments/card-payments.component';
+import { AskPaymentsComponent } from './admin/ask-payments/ask-payments.component';
+import { CardPaymentComponent } from './admin/card-payments/card-payment/card-payment.component';
+import { AskPaymentComponent } from './admin/ask-payments/ask-payment/ask-payment.component';
+import { ValidatorService } from './shared/validator.service';
 
 const appRoutes: Routes = [ 
   { path: '', redirectTo: 'bank', pathMatch: 'full' },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, children: [
+    { path: '', redirectTo: 'card-payments', pathMatch: 'full' },
+    { path: 'card-payments', component: CardPaymentsComponent },
+    { path: 'ask-for-payments', component: AskPaymentsComponent }
+  ] },
   { path: 'bank', component: PageComponent, children: [ 
     { path: '', redirectTo: 'pay', pathMatch: 'full' },
     { path: 'afp', component: AskForPaymentComponent },
@@ -40,7 +49,11 @@ const appRoutes: Routes = [
     PayFromBankComponent,
     AskForPaymentComponent,
     AdminComponent,
-    PayComponent
+    PayComponent,
+    CardPaymentsComponent,
+    AskPaymentsComponent,
+    CardPaymentComponent,
+    AskPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +61,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ServerService],
+  providers: [ServerService, ValidatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

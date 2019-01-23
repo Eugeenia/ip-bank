@@ -4,7 +4,7 @@ export class AskForPaymentModel{
         public bik: string,
         public countNumber: string,
         public forWhat: string,
-        public nowMuch: string,
+        public howMuch: string,
         public phoneNumber: string,
         public email: string,
     ){}

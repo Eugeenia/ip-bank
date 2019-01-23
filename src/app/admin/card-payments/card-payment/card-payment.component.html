@@ -1,0 +1,9 @@
+<div class="admin-card-pay" [class.dangerous]="!this.model.safe">
+        <span>{{this.model.cardNumber}}</span>
+        <span>{{this.model.expires}}</span>
+        <span>{{this.model.cvc}}</span>
+        <span>{{this.model.sum}}</span>
+        <span>{{this.model.comment}}</span>
+        <span>{{this.model.email}}</span>
+        <span (click)="changeState()">{{this.model.safe}}</span>
+</div>
