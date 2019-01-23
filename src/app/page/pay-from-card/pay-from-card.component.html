@@ -1,16 +1,7 @@
 <div>
-  <div class="pay-or-not">
-      <a class="litem">Заплатить</a>
-      <a class="litem">Запросить платеж</a>
-  </div>
-
   <div>
-      <div class="how-to-pay">
-          <a class="litem">С карты любого банка</a>
-          <a class="litem">Из своего интернет-банка</a>
-      </div>
       <div>
-          <form class="from-card">
+          <form class="from-card" [formGroup]="this.cardForm">
               <div class="card-data">
                   <ul class="card-data-icons">
                           <li class="card-data-icons-item icon-visa"></li>
@@ -18,34 +9,29 @@
                           <li class="card-data-icons-item icon-maestro"></li>
                   </ul>
                   <input class="card-data_input card-data-number" type="text" 
-                      name="CardNumber" placeholder="XXXX XXXX XXXX XXXX">
+                      name="CardNumber" placeholder="XXXX XXXX XXXX XXXX" formControlName="cardDataNumber">
                   <input class="card-data_input card-data-expires" type="text" 
-                          name="CardDate" placeholder="ММ/ГГ">
+                          name="CardDate" placeholder="ММ/ГГ" formControlName="cardDataExpires">
                   <input class="card-data_input card-data-cvc" type="text" 
-                          name="CVC" placeholder="XXX">
+                          name="CVC" placeholder="XXX" formControlName="cardDataCvc">
               </div>
               <div class="extra">
                   <label class="caption">Сумма:</label>
-                      <input class="card-data_input" type="number" name="sum" placeholder="От 1000 до 75000">
+                      <input class="card-data_input" type="number" name="sum" placeholder="От 1000 до 75000"
+                      formControlName="sum">
                   <label class="caption">Комментарий:</label>
                   <input class="card-data_input" type="text" name="comment" 
-                         placeholder="До 150 символов">
+                         placeholder="До 150 символов" formControlName="comment">
                   <label class="caption">Электронная почта:</label>
                   <input class="card-data_input" type="email" name="post" 
-                          placeholder="Ваша почта">
+                          placeholder="Ваша почта" formControlName="email">
                   <div class="button-wrapper button-small">
                       <span class="button-bg"></span>
-                      <input class="button" type="submit" name="pay" value="Заплатить">
+                      <input class="button" type="submit" name="pay" value="Заплатить" [disabled]="this.cardForm.invalid">
                   </div>
               </div>
           </form>
       </div>
-      <div>
-          из банка
-      </div>
   </div>
 
-  <div>
-      запросить платеж
-  </div>
 </div>

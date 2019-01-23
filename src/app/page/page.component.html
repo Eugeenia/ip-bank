@@ -1,5 +1,9 @@
 <div class="page"> 
   <app-header></app-header>
-  <app-payment></app-payment>
+  <div class="pay-or-not">
+    <a class="link link-big" routerLink="pay" routerLinkActive="active-big">Заплатить</a>
+    <a class="link link-big" routerLink="afp" routerLinkActive="active-big">Запросить платеж</a>
+  </div>
+  <router-outlet></router-outlet>
   <app-info-about-company></app-info-about-company>
 </div>

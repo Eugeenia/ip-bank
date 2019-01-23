@@ -1,0 +1,21 @@
+<div class="payment">
+  <b>Сформируйте платежку и загрузите её в свой банк для подписи</b>
+  <form [formGroup]="this.payFromBank">
+      <div class="pay-from-bank">
+          <label class="pfb">От кого</label>
+          <input class="pfb-input from" type="text" placeholder="ИНН или название плательщика">
+          <label class="pfb">БИК</label>
+          <input class="pfb-input bik" type="text">
+          <label class="pfb">Номер счета</label>
+          <input class="pfb-input count-number" type="text">
+          <label class="pfb">За что</label>
+          <input class="pfb-input for-what" type="text" placeholder="Назначение платежа">
+          <label class="pfb">Сколько</label>
+          <input class="pfb-input how-much" type="text">
+      </div>
+      <div class="button-wrapper button-big">
+          <span class="button-bg"></span>
+          <input class="button-get" type="submit" name="pay" value="Получить файл для интернет-банка">
+      </div>
+  </form>
+</div>

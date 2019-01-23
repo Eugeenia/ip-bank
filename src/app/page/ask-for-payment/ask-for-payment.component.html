@@ -1,0 +1,29 @@
+<div class="payment">
+  <b>Создайте платежку, а Индивидуальный предприниматель Швецова Мария Валерьевна подпишет ее у себя в интернет-банке</b>
+  <form [formGroup]="this.askForPayment">
+      <div class="ask-for-payment">
+          <label class="afp">ИНН получателя</label>
+          <input class="afp-input from" type="text" placeholder="ИНН или название плательщика"
+            formControlName="inn">
+          <label class="afp">БИК</label>
+          <input class="afp-input bik" type="text" formControlName="bik">
+          <label class="afp">Номер счета</label>
+          <input class="afp-input count-number" type="text" formControlName="countNumber">
+          <label class="afp">За что</label>
+          <input class="afp-input for-what" type="text" placeholder="Назначение платежа" 
+            formControlName="forWhat">
+          <label class="afp">Сколько</label>
+          <input class="afp-input how-much" type="text" formControlName="howMuch">
+          <label class="afp">Номер телефона</label>
+          <input class="afp-input" type="text" placeholder="+7" formControlName="phoneNumber">
+          <label class="afp">Эл. почта</label>
+          <input class="afp-input" type="text" placeholder="Для уведомлений об оплате" formControlName="email">
+
+          <div class="button-wrapper button-mid">
+              <span class="button-bg"></span>
+              <input class="button-get" type="submit" name="pay" value="Создать платеж">
+          </div>  
+      </div>
+      <input class="button-reset" type="reset" value="Очистить форму">
+  </form>
+</div>
