@@ -19,12 +19,12 @@ export class ServerService {
         return this.http.post<AskForPaymentModel>(this.urlApiAsk, askForPaymentModel);
     }
 
-    public getCardPay(){
-        return this.http.get<CardPayModel[]>(this.urlApiPay);
+    public getCardPay(params: any){
+        return this.http.get<CardPayModel[]>(this.urlApiPay, { params: params });
     }
 
-    public getAskPay(){
-        return this.http.get<AskForPaymentModel[]>(this.urlApiAsk);
+    public getAskPay(params: any){
+        return this.http.get<AskForPaymentModel[]>(this.urlApiAsk, { params: params });
     }
 
     public markAsDangerous(url: string){
