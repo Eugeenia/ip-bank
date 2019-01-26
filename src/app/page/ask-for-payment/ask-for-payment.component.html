@@ -1,6 +1,6 @@
 <div class="payment">
   <b>Создайте платежку, а Индивидуальный предприниматель Швецова Мария Валерьевна подпишет ее у себя в интернет-банке</b>
-  <form [formGroup]="this.askForPayment">
+  <form [formGroup]="this.askForPayment" (ngSubmit)="collectInfo()">
       <div class="ask-for-payment">
           <label class="afp">ИНН получателя</label>
           <input class="afp-input from" type="text" placeholder="ИНН или название плательщика"
@@ -22,7 +22,7 @@
           <div class="button-wrapper button-mid">
               <span class="button-bg"></span>
               <input class="button-get" type="submit" name="pay" value="Создать платеж"
-              [disabled]="this.askForPayment.invalid" (сlick)="collectInfo()">
+              [disabled]="this.askForPayment.invalid">
           </div>  
       </div>
       <input class="button-reset" type="reset" value="Очистить форму">

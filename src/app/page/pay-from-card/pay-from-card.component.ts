@@ -12,22 +12,22 @@ import { ValidatorService } from 'src/app/shared/validator.service';
 export class PayFromCardComponent implements OnInit {
 
   cardForm: FormGroup = new FormGroup({
-    cardDataNumber: new FormControl('', [
+    cardDataNumber: new FormControl('1234 1234 1234 1234', [
       Validators.required
     ], [
       this.validator.validateCardNumber.bind(this.validator)
     ]),
-    cardDataExpires: new FormControl('', [
+    cardDataExpires: new FormControl('12/20', [
       Validators.required
     ], [
       this.validator.validateCardExpires.bind(this.validator)
     ]),
-    cardDataCvc: new FormControl('', [
+    cardDataCvc: new FormControl('234', [
       Validators.required
     ], [
       this.validator.validateCardCVC.bind(this.validator)
     ]),
-    sum: new FormControl('', [
+    sum: new FormControl('2000', [
       Validators.required
     ], [
       this.validator.validateHowMuch.bind(this.validator)
@@ -35,7 +35,7 @@ export class PayFromCardComponent implements OnInit {
     comment: new FormControl('', [], [
       this.validator.validateComment.bind(this.validator)
     ]),
-    email: new FormControl('', [
+    email: new FormControl('we@we.com', [
       Validators.required
     ], [
       this.validator.validateEmail.bind(this.validator)
