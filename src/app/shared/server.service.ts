@@ -9,7 +9,12 @@ export class ServerService {
     private urlServer = 'http://localhost:5000'
     private urlApiPay = this.urlServer + '/card-payments/';
     private urlApiAsk = this.urlServer + '/ask-payments/';
-    private validationApiUrl = this.urlServer + '/validator/';
+    private validationApiUrl = this.urlServer + '/validator/'; 
+    private authUrl = this.urlServer + '/bank/api/token';
+
+    public getToken(login: string, password: string) {
+        return this.http.post<{ token: string }>(this.authUrl, { login, password });
+    }
 
     public saveCardPay(cardModel: CardPayModel){
         return this.http.post<CardPayModel>(this.urlApiPay, cardModel);

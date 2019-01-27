@@ -19,10 +19,15 @@ import { AskPaymentsComponent } from './admin/ask-payments/ask-payments.componen
 import { CardPaymentComponent } from './admin/card-payments/card-payment/card-payment.component';
 import { AskPaymentComponent } from './admin/ask-payments/ask-payment/ask-payment.component';
 import { ValidatorService } from './shared/validator.service';
+import { AutentificationComponent } from './admin/autentification/autentification.component';
+import { AutentificationGuard } from './shared/autentification.guard';
+import { TokensService } from './shared/tokens.service';
+import { AutentificateInterceptor } from './shared/autentificate.interceptor';
 
 const appRoutes: Routes = [ 
   { path: '', redirectTo: 'bank', pathMatch: 'full' },
-  { path: 'admin', component: AdminComponent, children: [
+  { path: 'auth', component: AutentificationComponent, pathMatch: 'full' },
+  { path: 'admin', component: AdminComponent, canActivate: [AutentificationGuard], children: [
     { path: '', redirectTo: 'card-payments', pathMatch: 'full' },
     { path: 'card-payments', component: CardPaymentsComponent },
     { path: 'ask-for-payments', component: AskPaymentsComponent }
@@ -53,7 +58,8 @@ const appRoutes: Routes = [
     CardPaymentsComponent,
     AskPaymentsComponent,
     CardPaymentComponent,
-    AskPaymentComponent
+    AskPaymentComponent,
+    AutentificationComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +67,12 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [ServerService, ValidatorService],
+  providers: [ServerService, 
+    ValidatorService, 
+    AutentificationGuard,
+    TokensService,
+    AutentificateInterceptor
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

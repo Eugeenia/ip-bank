@@ -4,8 +4,7 @@
     font-family: 'Cuprum', sans-serif;
 }
 
-.contacts
-{
+.contacts {
     display: flex;
     flex-flow: row wrap;
     list-style-type: none;

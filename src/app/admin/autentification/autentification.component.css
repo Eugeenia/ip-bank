@@ -1,0 +1,30 @@
+.autentification {
+	text-align: center;
+    display: block;
+    height: 150px;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.login {
+	border: 2px solid lavender;
+	border-radius: 5px;
+	text-align: center;
+	width: 300px;
+	margin: auto;
+}
+.autent {
+	height: 30px;
+	text-decoration: none;
+    width: 250px;
+    border: 1px solid rgb(181, 118, 211);
+    border-radius: 3px;
+    margin: auto;
+}
+.log-in {
+    width: 50px;
+    margin: auto;
+    border: 1px solid rgb(180, 123, 142);
+    border-radius: 2px;
+    height: 20px;
+    background: rgb(235, 166, 241);
+}

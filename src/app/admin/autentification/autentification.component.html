@@ -1,0 +1,12 @@
+<div class="login">
+	<form class="autentification" (ngSubmit)="collectInfo()" [formGroup]="this.autentification">
+		<label>Login</label>
+    <input class="autent" type="text" name="login" placeholder="Enter your username"
+      FormControlName="login">
+		<label>Password</label>
+    <input class="autent" type="text" name="passw" placeholder="Enter your password"
+    	FormControlName="passw">
+		<input class="log-in" type="submit" name="button" value="Log in" 
+			[disabled]="this.autentification.invalid">
+	</form>
+</div>
