@@ -10,10 +10,10 @@ export class ServerService {
     private urlApiPay = this.urlServer + '/card-payments/';
     private urlApiAsk = this.urlServer + '/ask-payments/';
     private validationApiUrl = this.urlServer + '/validator/'; 
-    private authUrl = this.urlServer + '/bank/api/token';
+    private authUrl = this.urlServer + '/login/';
 
-    public getToken(login: string, password: string) {
-        return this.http.post<{ token: string }>(this.authUrl, { login, password });
+    public getToken(login: string, passw: string) {
+        return this.http.post<{ token: string }>(this.authUrl, { login, passw });
     }
 
     public saveCardPay(cardModel: CardPayModel){
